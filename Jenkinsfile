@@ -8,7 +8,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './gradlew clean assembleDebug'
+                sh 'echo "sdk.dir=/home/ashwitha/Android/Sdk" > local.properties'
+                       sh 'chmod +x gradlew'
+                       sh './gradlew clean assembleDebug'
             }
         }
         stage('Test') {
